@@ -27,5 +27,4 @@ jobs:
         body_path: CHANGELOG.md
         files: |
           WebScraping.py
-          script.sql
           README.md
