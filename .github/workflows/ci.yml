@@ -1,6 +1,13 @@
 name: Verificação Básica
 
-on: [push]
+on:
+    push:
+        branches:
+            - main
+
+permissions: 
+    contents: write
+
 
 jobs:
   check:
@@ -9,6 +16,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
+    
+
     - name: Configurar Python
       uses: actions/setup-python@v4
       with:
@@ -17,6 +26,17 @@ jobs:
     - name: Instalar dependências
       run: |
         pip install requests beautifulsoup4 pdfplumber
+
+    - name: Generate tag
+      id: generate_tag
+      run: |
+          SHA=$(echo $GITHUB_SHA | head -c7)
+          echo "sha=$SHA" >> $GITHUB_OUTPUT
         
     - name: Executar script principal
       run: python WebScraping.py
+        
+    - name: Semantic Release
+      uses: cycjimmy/semantic-release-action@v4
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
