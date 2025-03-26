@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import zipfile
 import os
 from urllib.parse import urljoin
+import re
 
 def baixar_anexos():
     # 1.1 Acesso ao site
@@ -27,11 +28,12 @@ def baixar_anexos():
         # Procurar por todos os links na página
         for link in soup.find_all('a'):
             href = link.get('href', '')
+            link_text = link.text.strip().lower()
             
-            # Verificar se é um link para Anexo I ou II em PDF
-            if ('Anexo I' in href or 'Anexo I' in link.text) and href.endswith('.pdf'):
+            # Verificação mais precisa usando regex
+            if re.search(r'anexo\s+i(?!i)', link_text) and href.lower().endswith('.pdf'):
                 pdf_links.append(('Anexo I.pdf', href))
-            elif ('Anexo II' in href or 'Anexo II' in link.text) and href.endswith('.pdf'):
+            elif re.search(r'anexo\s+ii', link_text) and href.lower().endswith('.pdf'):
                 pdf_links.append(('Anexo II.pdf', href))
         
         if not pdf_links:

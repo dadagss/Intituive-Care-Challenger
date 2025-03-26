@@ -1,2 +1,3 @@
 *.Anexos.zip
 .venv/
+__pycache__/
