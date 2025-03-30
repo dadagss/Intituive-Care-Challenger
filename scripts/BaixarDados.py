@@ -4,14 +4,14 @@ import zipfile
 from urllib.parse import urljoin
 
 def download_ans_data():
-    # URLs atualizadas (baseado na estrutura real do site)
+
     base_url = "https://dadosabertos.ans.gov.br/FTP/PDA/"
     
     # Criar pastas
     os.makedirs("dados/demonstracoes", exist_ok=True)
     os.makedirs("dados/cadastrais", exist_ok=True)
 
-    # ------ Parte 1: Baixar Operadoras Ativas (arquivo correto) ------
+    # ------ Parte 1: Baixar Operadoras Ativas ------
     operadoras_url = urljoin(base_url, "operadoras_de_plano_de_saude_ativas/Relatorio_cadop.csv")
     response = requests.get(operadoras_url)
     if response.status_code == 200:

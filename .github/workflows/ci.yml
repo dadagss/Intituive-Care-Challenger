@@ -14,15 +14,15 @@ jobs:
       with:
         fetch-depth: 0  
 
-    - name: Configurar Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.12'  
+    # - name: Configurar Python
+    #   uses: actions/setup-python@v4
+    #   with:
+    #     python-version: '3.12'  
 
-    - name: Instalar dependências
-      run: |
-        pip install requests beautifulsoup4 pdfplumber pandas zipfile
+    # - name: Instalar dependências
+    #   run: |
+    #     pip install requests beautifulsoup4 pdfplumber pandas zipfile
 
 
-    - name: Executar script principal
-      run: python main.py
+    # - name: Executar script principal
+    #   run: cd scritps/ 
