@@ -61,7 +61,7 @@ def processar_anexo_i(zip_path: str, seu_nome: str):
             index=False,
             sep=';',
             encoding='utf-8-sig',
-            quoting=1,  # CSV.QUOTE_MINIMAL
+            quoting=1,  
             quotechar='"'
         )
         
@@ -81,3 +81,7 @@ def processar_anexo_i(zip_path: str, seu_nome: str):
             if os.path.exists(arquivo):
                 os.remove(arquivo)
         return None
+    
+        
+if __name__ == "__main__":
+    processar_anexo_i()

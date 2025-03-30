@@ -1,0 +1,23 @@
+{
+    "info": {
+      "_postman_id": "...",
+      "name": "ANS Operadoras",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Buscar Operadoras",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:5000/api/operadoras?q=saúde",
+            "host": ["localhost"],
+            "port": "5000",
+            "path": ["api","operadoras"],
+            "query": [{"key":"q","value":"saúde"}]
+          }
+        }
+      }
+    ]
+  }

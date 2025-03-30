@@ -1,3 +1,4 @@
 *.Anexos.zip
 .venv/
 __pycache__/
+dados/
