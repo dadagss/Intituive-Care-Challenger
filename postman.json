@@ -1,23 +1,104 @@
 {
-    "info": {
-      "_postman_id": "...",
-      "name": "ANS Operadoras",
-      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-    },
-    "item": [
-      {
-        "name": "Buscar Operadoras",
-        "request": {
-          "method": "GET",
-          "header": [],
-          "url": {
-            "raw": "http://localhost:5000/api/operadoras?q=saúde",
-            "host": ["localhost"],
-            "port": "5000",
-            "path": ["api","operadoras"],
-            "query": [{"key":"q","value":"saúde"}]
-          }
+  "info": {
+    "_postman_id": "12345-67890-abcde-fghij",
+    "name": "ANS Operadoras API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Coleção para testar a API de Operadoras da ANS"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/test",
+          "host": ["{{base_url}}"],
+          "path": ["test"]
         }
-      }
-    ]
-  }
+      },
+      "response": []
+    },
+    {
+      "name": "Buscar Todas Operadoras",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/operadoras/",
+          "host": ["{{base_url}}"],
+          "path": ["operadoras", ""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Buscar por UF",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/operadoras/?uf=SP",
+          "host": ["{{base_url}}"],
+          "path": ["operadoras", ""],
+          "query": [
+            {
+              "key": "uf",
+              "value": "SP"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Busca Textual",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/operadoras/?termo=saude",
+          "host": ["{{base_url}}"],
+          "path": ["operadoras", ""],
+          "query": [
+            {
+              "key": "termo",
+              "value": "saude"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Busca Combinada",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/operadoras/?uf=RJ&termo=hospitalar",
+          "host": ["{{base_url}}"],
+          "path": ["operadoras", ""],
+          "query": [
+            {
+              "key": "uf",
+              "value": "RJ"
+            },
+            {
+              "key": "termo",
+              "value": "hospitalar"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "description": "URL base da API"
+    }
+  ]
+}
